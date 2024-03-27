@@ -14,12 +14,10 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->sentence(),
-            // 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            // 'email' => $this->faker->unique()->safeEmail(),
-            // 'full_name' => $this->localizedFaker->name(),
-            // 'phone_number' => $phone_number,
-            //
+            'name' => substr($this->faker->sentence(), 0, -1),
+            'description' => $this->faker->paragraphs(3, true),
+            'price' => $this->faker->randomFloat(2, 0, 999999),
+            'stock_quantity' => $this->faker->randomNumber(4)
         ];
     }
 }
