@@ -13,8 +13,11 @@ class CreateOrderTable extends Migration
      */
     public function up()
     {
-        Schema::create('order', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id', 1000)->unique();
+            $table->date_format('order_date');
+            $table->string('status');
             $table->timestamps();
         });
     }
