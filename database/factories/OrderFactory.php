@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 class OrderFactory extends Factory
 {
     private $localizedFaker;
+    private $statuses;
 
     public function __construct($count = null,
         ?Collection $states = null,
@@ -23,6 +24,8 @@ class OrderFactory extends Factory
     {
         parent::__construct($count, $states, $has, $for, $afterMaking, $afterCreating, $connection, $recycle);
         $this->localizedFaker = FakerFactory::create('en_NG');
+
+        $this->statuses = ['Processing', 'Shipped', 'Delivered'];
     }
 
     /**
@@ -35,7 +38,7 @@ class OrderFactory extends Factory
         return [
             'user_id' => User::inRandomOrder()->first()->id,
             'order_date' => $this->faker->dateTime(),
-            'status' => $this->faker->unique()->status(),
+            'status' => $this->faker->randomElement($this->statuses),
             //
         ];
     }

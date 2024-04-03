@@ -18,7 +18,7 @@ class CreateOrderTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
             $table->dateTime('order_date');
-            $table->string('status');
+            $table->enum('status', ['Processing', 'Shipped', 'Delivered']);
             $table->timestamps();
         });
     }
