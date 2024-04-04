@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Collection;
 use Faker\Factory as FakerFactory;
@@ -32,11 +33,9 @@ class OrderFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker->unique()->user id(),
-            'order_date' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'user_id' => User::inRandomOrder()->first()->id,
+            'order_date' => $this->faker->dateTime(),
             'status' => $this->faker->unique()->status(),
-            'full_name' => $this->localizedFaker->name(),
-            'phone_number' => $phone_number,
             //
         ];
     }

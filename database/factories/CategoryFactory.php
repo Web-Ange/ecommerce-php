@@ -17,8 +17,7 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            'category_id' => $this->faker->unique()->user id(),
-            'name' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'name' => $this->faker->word(),
             //'status' => $this->faker->unique()->status(),
             //'full_name' => $this->localizedFaker->name(),
             //'phone_number' => $phone_number,

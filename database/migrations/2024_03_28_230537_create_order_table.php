@@ -15,7 +15,7 @@ class CreateOrderTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->unstringBigInteger('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
             $table->dateTime('order_date');
             $table->string('status');
