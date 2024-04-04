@@ -33,9 +33,10 @@ class ProductFactory extends Factory
     {
         return [
             'name' => substr($this->faker->sentence(), 0, -1),
-            'description' => $this->faker->paragraphs(3, true),
-            'price' => $this->faker->randomFloat(2, 0, 999999),
-            'stock_quantity' => $this->faker->randomNumber(4)
+            'description' => implode($this->faker->paragraphs(3, true)),
+            // 'price' => $this->faker->randomFloat(2, 0, 999999),
+            // 'stock_quantity' => $this->Faker->randomNumber(4),
+            //
         ];
     }
     /**
@@ -51,5 +52,5 @@ class ProductFactory extends Factory
             ];
         });
     }
-
+                
 }
