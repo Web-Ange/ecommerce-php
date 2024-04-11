@@ -20,7 +20,6 @@ class OrderFactory extends Factory
             'order_date' => $this->faker->dateTime(),
             'total_amount' => $this->faker->randomFloat(2, 10, 500),
             'status' => $this->faker->randomElement(['processing', 'shipped', 'delivered']),
-    
         ];
     }
 }
