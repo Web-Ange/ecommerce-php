@@ -2,32 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Collection;
-use Faker\Factory as FakerFactory;
-use Illuminate\Support\Str;
 
 class OrderFactory extends Factory
 {
-    private $localizedFaker;
-    private $statuses;
-
-    public function __construct($count = null,
-        ?Collection $states = null,
-        ?Collection $has = null,
-        ?Collection $for = null,
-        ?Collection $afterMaking = null,
-        ?Collection $afterCreating = null,
-        $connection = null,
-        ?Collection $recycle = null)
-    {
-        parent::__construct($count, $states, $has, $for, $afterMaking, $afterCreating, $connection, $recycle);
-        $this->localizedFaker = FakerFactory::create('en_NG');
-
-        $this->statuses = ['Processing', 'Shipped', 'Delivered'];
-    }
-
     /**
      * Define the model's default state.
      *
@@ -35,11 +13,14 @@ class OrderFactory extends Factory
      */
     public function definition()
     {
+
         return [
-            'user_id' => User::inRandomOrder()->first()->id,
+            
+            'user_id' => $this->faker->numberBetween(1, 100),
             'order_date' => $this->faker->dateTime(),
-            'status' => $this->faker->randomElement($this->statuses),
-            //
+            'total_amount' => $this->faker->randomFloat(2, 10, 500),
+            'status' => $this->faker->randomElement(['processing', 'shipped', 'delivered']),
+    
         ];
     }
 }

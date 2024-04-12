@@ -13,12 +13,13 @@ class CreateOrderTable extends Migration
      */
     public function up()
     {
-        Schema::create('order', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unstringBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
             $table->dateTime('order_date');
-            $table->enum('status', ['Processing', 'Shipped', 'Delivered']);
+            $table->string('status');
+            $table->decimal('total_amount', 10, 2);
             $table->timestamps();
         });
     }
