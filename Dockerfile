@@ -15,10 +15,10 @@ COPY . .
 
 # Install composer dependencies
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN composer install --no-scripts
+RUN composer install
+
+# Transfer file ownership to Apache
+RUN chown -R www-data:www-data *
 
 # Expose port 80 to the outside world
 EXPOSE 80
-
-# Start Apache server
-CMD [ "apache2-foreground" ]
