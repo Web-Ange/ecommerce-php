@@ -15,13 +15,18 @@ This is a web application built for the purpose of learning how to use PHP, with
 
 ### Using Docker
 
-If you are using a different version of PHP than 7.4, you will need to run a Docker container to access the webpages in the application. However, your local database installation will still be used as configured in the [.env](.env.example) file.
+If you are using a different version of PHP than 7.4, you will need to use Laravel Sail to access the webpages in the application. It also provisions a MySQL Docker container.
 
-After loading your workspace, starting your database server and launching Docker, run these commands to provision the Docker container:
+After loading your workspace, start the application using:
 
 ```
-docker build -t laravel-with-php7.4 </path/to/laravel-app>
-docker run -d -p 80:80 --add-host host.docker.internal=host-gateway laravel-with-php7.4
+./vendor/bin/sail up -d
+```
+
+… and stop it using:
+
+```
+./vendor/bin/sail stop
 ```
 
 ## Learning Laravel
