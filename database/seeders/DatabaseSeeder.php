@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\Product;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Category;
+use App\Models\Order;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,8 +17,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(25)->create();
-        Product::factory(200)->create();
+        //User::factory(25)->create();
+       // Product::factory(200)->create();
         // Order::factory(30)->create();
+        Category::factory(15)->create();
     }
 }
