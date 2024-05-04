@@ -19,6 +19,7 @@ class CreateOrderTable extends Migration
             $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
             $table->dateTime('order_date');
             $table->string('status');
+              $table->decimal('total_amount', 10, 2);
             $table->timestamps();
         });
     }
