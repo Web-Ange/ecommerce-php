@@ -19,11 +19,7 @@ class CreateProductsTable extends Migration
             $table->text('description')->nullable();
             $table->decimal('price', 8,2);
             $table->integer('stock_quantity', false, true );
-           // $table->unsignedBigInteger('category_id')->nullable()->unique();
             $table->timestamps();
-
-            //Define foreign key relationship
-            //$table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
 
         });
     }

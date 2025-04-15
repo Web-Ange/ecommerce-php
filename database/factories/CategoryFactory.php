@@ -17,11 +17,7 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->word(),
-            //'status' => $this->faker->unique()->status(),
-            //'full_name' => $this->localizedFaker->name(),
-            //'phone_number' => $phone_number,
-            //
+            'name' => $this->faker->word()
         ];
     }
 }

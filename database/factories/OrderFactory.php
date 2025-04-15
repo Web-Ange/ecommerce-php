@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class OrderFactory extends Factory
@@ -16,10 +18,11 @@ class OrderFactory extends Factory
 
         return [
             
-            'user_id' => $this->faker->numberBetween(1, 100),
+            'user_id' => User::inRandomOrder()->first()->id,
             'order_date' => $this->faker->dateTime(),
             'total_amount' => $this->faker->randomFloat(2, 10, 500),
             'status' => $this->faker->randomElement(['processing', 'shipped', 'delivered']),
+            'product_id' => Product::inRandomOrder()->first()->id,
         ];
     }
 }
